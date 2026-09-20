@@ -1,0 +1,282 @@
+# Teamo
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flores Amarillas para Yargelys</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: linear-gradient(135deg, #fffde7, #fff9c4);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    .card {
+      background: #ffffff;
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(255, 214, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    h1 {
+      color: #fbc02d;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background-color: #fbc02d;
+      color: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(251, 192, 45, 0.4);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+    .btn:active {
+      transform: scale(0.95);
+      background-color: #f9a825;
+    }
+    .flower-container {
+      margin-top: 25px;
+      display: none;
+      animation: fadeIn 1s forwards;
+    }
+    .flower {
+      font-size: 80px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+    .message {
+      margin-top: 15px;
+      font-weight: 600;
+      color: #f57f17;
+      font-size: 1.1rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .falling-flower {
+      position: fixed;
+      top: -10%;
+      font-size: 24px;
+      user-select: none;
+      pointer-events: none;
+      z-index: 1;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>¡Feliz 21 de Septiembre, Yargelys! 💛</h1>
+    <p>Hoy no podía dejar pasar la oportunidad de regalarte tus flores amarillas especiales...</p>
+    
+    <button class="btn" onclick="mostrarFlores()">Toca aquí para recibir tu regalo 🌻</button>
+
+    <div class="flower-container" id="regalo">
+      <div class="flower">🌻✨🌻</div>
+      <div class="message">
+        Con todo mi amor,<br><strong>Jairo</strong>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarFlores() {
+      document.getElementById('regalo').style.display = 'block';
+      lloverFlores();
+    }
+
+    function lloverFlores() {
+      for (let i = 0; i < 30; i++) {
+        setTimeout(() => {
+          const flower = document.createElement('div');
+          flower.classList.add('falling-flower');
+          flower.innerText = Math.random() > 0.5 ? '🌻' : '🌼';
+          flower.style.left = Math.random() * 100 + 'vw';
+          flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
+          document.body.appendChild(flower);
+
+          setTimeout(() => {
+            flower.remove();
+          }, 5000);
+        }, i * 150);
+      }
+    }
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flores Amarillas para Yargelys</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: linear-gradient(135deg, #fffde7, #fff9c4);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    .card {
+      background: #ffffff;
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(255, 214, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    h1 {
+      color: #fbc02d;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background-color: #fbc02d;
+      color: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(251, 192, 45, 0.4);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+    .btn:active {
+      transform: scale(0.95);
+      background-color: #f9a825;
+    }
+    .flower-container {
+      margin-top: 25px;
+      display: none;
+      animation: fadeIn 1s forwards;
+    }
+    .flower {
+      font-size: 80px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+    .message {
+      margin-top: 15px;
+      font-weight: 600;
+      color: #f57f17;
+      font-size: 1.1rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .falling-flower {
+      position: fixed;
+      top: -10%;
+      font-size: 24px;
+      user-select: none;
+      pointer-events: none;
+      z-index: 1;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>¡Feliz 21 de Septiembre, Yargelys! 💛</h1>
+    <p>Hoy no podía dejar pasar la oportunidad de regalarte tus flores amarillas especiales...</p>
+    
+    <button class="btn" onclick="mostrarFlores()">Toca aquí para recibir tu regalo 🌻</button>
+
+    <div class="flower-container" id="regalo">
+      <div class="flower">🌻✨🌻</div>
+      <div class="message">
+        Con todo mi amor,<br><strong>Jairo</strong>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarFlores() {
+      document.getElementById('regalo').style.display = 'block';
+      lloverFlores();
+    }
+
+    function lloverFlores() {
+      for (let i = 0; i < 30; i++) {
+        setTimeout(() => {
+          const flower = document.createElement('div');
+          flower.classList.add('falling-flower');
+          flower.innerText = Math.random() > 0.5 ? '🌻' : '🌼';
+          flower.style.left = Math.random() * 100 + 'vw';
+          flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
+          document.body.appendChild(flower);
+
+          setTimeout(() => {
+            flower.remove();
+          }, 5000);
+        }, i * 150);
+      }
+    }
+  </script>
+</body>
+</html>
